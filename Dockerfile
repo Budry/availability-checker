@@ -28,4 +28,4 @@ RUN apk --no-cache --update add ca-certificates && update-ca-certificates
 # Copy our static executable
 COPY --from=builder /go/bin/availability-checker /go/bin/availability-checker
 
-CMD ["/go/bin/availability-checker"]
+CMD /go/bin/availability-checker >> /log.txt

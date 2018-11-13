@@ -6,14 +6,15 @@ import (
 	"io/ioutil"
 	"os"
 	"sync"
-	time2 "time"
+	"time"
 
 	"bitbucket.org/Budry/availability-checker/src/email"
 	"bitbucket.org/Budry/availability-checker/src/options"
 	"bitbucket.org/Budry/availability-checker/src/sites"
+	"github.com/robfig/cron"
 )
 
-func main() {
+func Process() {
 	file, err := os.Open("/var/lib/availability-checker/config.json")
 	if err != nil {
 		panic(err)
@@ -41,7 +42,7 @@ func main() {
 		}(site)
 	}
 	wg.Wait()
-	time := time2.Now()
+	time := time.Now()
 	fmt.Println("==================================")
 	fmt.Println(time.Format("15:04:05 02.01.06"))
 	fmt.Println("==================================")
@@ -61,4 +62,10 @@ func main() {
 			fmt.Println()
 		}
 	}
+}
+
+func main() {
+	c := cron.New()
+	c.AddFunc(os.Getenv("CRON"), Process)
+	c.Run()
 }

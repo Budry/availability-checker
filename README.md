@@ -9,6 +9,7 @@ $ docker run \
     -e SMTP_PORT="" \
     -e SMTP_USER="" \
     -e SMTP_PASSWORD="" \
+    -e CRON="0 */10 * * * *"
     --volume ./config.json:/var/lib/availability-checker/config.json \ 
     budry/availability-checker
 ```
