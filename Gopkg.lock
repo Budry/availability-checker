@@ -18,14 +18,6 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:eebd52aee67d9f1e0af1859a584e14b1817581dd5f90d4585418c27b6a93c966"
-  name = "github.com/go-gomail/gomail"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "41f3572897373c5538c50a2402db15db079fa4fd"
-  version = "2.0.0"
-
-[[projects]]
   branch = "master"
   digest = "1:1a1ecfa7b54ca3f7a0115ab5c578d7d6a5d8b605839c549e80260468c42f8be7"
   name = "golang.org/x/net"
@@ -34,7 +26,7 @@
     "html/atom",
   ]
   pruneopts = "UT"
-  revision = "03003ca0c849e57b6ea29a4bab8d3cb6e4d568fe"
+  revision = "88d92db4c548972d942ac2a3531a8a9a34c82ca6"
 
 [[projects]]
   branch = "v3"
@@ -44,12 +36,20 @@
   pruneopts = "UT"
   revision = "2caba252f4dc53eaf6b553000885530023f54623"
 
+[[projects]]
+  digest = "1:eebd52aee67d9f1e0af1859a584e14b1817581dd5f90d4585418c27b6a93c966"
+  name = "gopkg.in/gomail.v2"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "41f3572897373c5538c50a2402db15db079fa4fd"
+  version = "2.0.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
     "github.com/PuerkitoBio/goquery",
-    "github.com/go-gomail/gomail",
+    "gopkg.in/gomail.v2",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
