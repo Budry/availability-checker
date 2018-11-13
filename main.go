@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"sync"
+	time2 "time"
 
 	"bitbucket.org/Budry/availability-checker/src/email"
 	"bitbucket.org/Budry/availability-checker/src/options"
@@ -40,6 +41,10 @@ func main() {
 		}(site)
 	}
 	wg.Wait()
+	time := time2.Now()
+	fmt.Println("==================================")
+	fmt.Println(time.Format("15:04:05 02.01.06"))
+	fmt.Println("==================================")
 	for _, result := range results {
 		if result.HasError() {
 			fmt.Print("[FAILED] ")
