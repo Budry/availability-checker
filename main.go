@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	file, err := os.Open("/var/lib/availability-checker/test.json")
+	file, err := os.Open("/var/lib/availability-checker/config.json")
 	if err != nil {
 		panic(err)
 	}
