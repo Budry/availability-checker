@@ -7,9 +7,9 @@ func SendFailNotificationMessage(result *sites.Result) {
 	message.From = "info@zaruba-ondrej.cz"
 	message.To = []string{"info@zaruba-ondrej.cz"}
 	message.Subject = "Site " + result.Site.Url + " is not working!"
-	message.Body = "Site " + result.Site.Url + " is not working!\n\nErrors:\n\n"
+	message.Body = "Site " + result.Site.Url + " is not working!\nErrors:\n"
 	for _, errorMessage := range result.Errors  {
-		message.Body += "\n\nError: '" + errorMessage + "'"
+		message.Body += "\n * " + errorMessage + "\n"
 	}
 
 	Send(message)
